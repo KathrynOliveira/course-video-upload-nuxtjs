@@ -8,5 +8,9 @@ export default defineNuxtConfig({
   app: {
     // baseURL: process.env.BASE_URL || "http://localhost:3000/"
   },
-  css: ["@/assets/css/main.css"]
+  css: ["@/assets/css/main.css"],
+  modules: ["@pinia/nuxt"],
+  pinia: {
+    storesDirs: ['./stores/**']
+  }
 })

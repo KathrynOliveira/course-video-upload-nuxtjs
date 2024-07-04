@@ -5,7 +5,7 @@
         <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
         <div class="videos">
             <div v-for="video in videos" :key="video.id">
-                <h2>{{ video.descrição }}</h2>
+                <h2>{{ video.descricao }}</h2>
                 <p>{{ converteDataBrasil(video.data_postagem) }}</p>
                 <iframe
                     width="550"
@@ -15,7 +15,7 @@
                     frameborder="0"
                 />
                 <div>
-                    <button @click="adicionaFavorito(video)">
+                    <button @click="adicionarFavorito(video)">
                         Adicionar Favorito
                     </button>
                 </div>
@@ -26,32 +26,33 @@
 
 <script setup lang="ts">
 
-import { Video } from "@/interfaces/video";
+import { Video } from './../../interfaces/video';
+// const favoritos = useFavoritos();
 
-const favoritos = useFavoritos();
+const { adicionarFavorito } = useVideoStore();
 
 const videos: Video[] = [
     {
         id: 1,
-        descrição: "01 - Introdução e Instalação",
+        descricao: "01 - Introdução e Instalação",
         url: "https://www.youtube.com/embed/WahQ5AoXpuU?si=F2FrXqWjB1dtJvGw",
         data_postagem: "2023-10-15"
     },
     {
         id: 2,
-        descrição: "02 - Configuração",
+        descricao: "02 - Configuração",
         url: "https://www.youtube.com/embed/JbbB84bnPog?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=3",
         data_postagem: "2023-10-20"
     },
     {
         id: 3,
-        descrição: "03 - Pages",
+        descricao: "03 - Pages",
         url: "https://www.youtube.com/embed/S99sVicr8NI?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=4",
         data_postagem: "2023-10-25"
     },
     {
         id: 4,
-        descrição: "04 - Components",
+        descricao: "04 - Components",
         url: "https://www.youtube.com/embed/cCHWanw49l8?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=5",
         data_postagem: "2023-10-25"
     }
@@ -61,9 +62,9 @@ const converteDataBrasil = (dataAtual: string) => {
     return new Date(dataAtual).toLocaleString("pt-BR");
 };
 
-const adicionaFavorito = (video: Video) => {
-     favoritos.value.push(video);
-};
+// const adicionarFavorito = (video: Video) => {
+//      favoritos.value.push(video);
+// };
 
 </script>
 
