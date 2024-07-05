@@ -22,6 +22,12 @@
 
 import type { Video } from '@/interfaces/video';
 
+const { $toast } = useNuxtApp();
+
+onMounted(() => {
+    $toast.success("Toast adicionado com sucesso!");
+})
+
 const { adicionarFavorito } = useVideoStore();
 
 const videos: Video[] = [
