@@ -7,15 +7,9 @@
             <div v-for="video in videos" :key="video.id">
                 <h2>{{ video.descricao }}</h2>
                 <p>{{ converteDataBrasil(video.data_postagem) }}</p>
-                <iframe
-                    width="550"
-                    height="400"
-                    :src="video.url"
-                    title="Youtube video player"
-                    frameborder="0"
-                />
+                <iframe width="550" height="400" :src="video.url" title="Youtube video player" frameborder="0" />
                 <div>
-                    <button @click="adicionarFavorito(video)">
+                    <button type="button" @click="adicionarFavorito(video)">
                         Adicionar Favorito
                     </button>
                 </div>
@@ -26,8 +20,7 @@
 
 <script setup lang="ts">
 
-import { Video } from './../../interfaces/video';
-// const favoritos = useFavoritos();
+import type { Video } from '@/interfaces/video';
 
 const { adicionarFavorito } = useVideoStore();
 
@@ -62,14 +55,10 @@ const converteDataBrasil = (dataAtual: string) => {
     return new Date(dataAtual).toLocaleString("pt-BR");
 };
 
-// const adicionarFavorito = (video: Video) => {
-//      favoritos.value.push(video);
-// };
-
 </script>
 
-<style lang="css" scoped>
-.videos{
+<style scoped>
+.videos {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -77,7 +66,7 @@ const converteDataBrasil = (dataAtual: string) => {
     gap: 1rem;
 }
 
-.videos button{
+.videos button {
     display: inline-block;
 }
 </style>

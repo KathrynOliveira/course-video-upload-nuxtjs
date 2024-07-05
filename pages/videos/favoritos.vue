@@ -4,15 +4,9 @@
         <div class="videos">
             <div v-for="video in favoritos" :key="video.id">
                 <h2>{{ video.descricao }}</h2>
-                <iframe
-                    width="550"
-                    height="400"
-                    :src="video.url"
-                    title="Youtube video player"
-                    frameborder="0"
-                />
+                <iframe width="550" height="400" :src="video.url" title="Youtube video player" frameborder="0" />
                 <div>
-                    <button @click="removerFavorito(video.id)">
+                    <button @click="videoStore.removerFavorito(video.id)">
                         Remover
                     </button>
                 </div>
@@ -22,17 +16,10 @@
 </template>
 
 <script setup lang="ts">
-// const favoritos = useFavoritos();
 
-const { removerFavorito } = useVideoStore();
-
-// const removerFavorito = (id: Number) => {
-//     const favoritosFiltrados = favoritos.value.filter((x) => x.id !== id);
-//     favoritos.value = favoritosFiltrados;
-// };
+const videoStore = useVideoStore();
+const { favoritos } = storeToRefs(videoStore)
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
