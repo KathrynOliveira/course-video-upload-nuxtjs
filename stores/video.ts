@@ -1,6 +1,8 @@
 import { Video } from "~/interfaces/video";
 
-export const useVideoStore = defineStore("videos", () => {
+export const useVideoStore = defineStore("videos",
+    
+() => {
     const favoritos = ref<Video[]>([]);
 
     const adicionarFavorito = (video: Video) => {
@@ -16,4 +18,11 @@ export const useVideoStore = defineStore("videos", () => {
     };
 
     return {adicionarFavorito, removerFavorito, favoritos}
-});
+    },
+    {
+        // persist: true 
+        persist: {
+            storage: persistedState.localStorage
+        }
+    }
+);

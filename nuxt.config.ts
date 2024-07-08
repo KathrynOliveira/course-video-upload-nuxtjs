@@ -9,7 +9,16 @@ export default defineNuxtConfig({
     // baseURL: process.env.BASE_URL || "http://localhost:3000/"
   },
   css: ["@/assets/css/main.css"],
-  modules: ["@pinia/nuxt"],
+  // modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt", "@nuxtjs/i18n"],
+  modules: [
+    "@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt",
+    [
+      '@nuxtjs/i18n',
+      {
+        vueI18n: "./i18n"
+      }
+    ]
+  ],
   pinia: {
     storesDirs: ['./stores/**']
   }

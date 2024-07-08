@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Videos Favoritos</h1>
+        <h1>{{ $t('tituloFavoritos') }}</h1>
         <div class="videos">
             <div v-for="video in favoritos" :key="video.id">
                 <h2>{{ video.descricao }}</h2>
