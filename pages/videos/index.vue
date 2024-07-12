@@ -34,38 +34,40 @@ import type { Video } from '@/interfaces/video';
 
 const { $toast } = useNuxtApp();
 
-onMounted(() => {
-    $toast.success("Toast adicionado com sucesso!");
+onMounted(async () => {
+    videos.value = await $fetch('/api/v1/videos')
+    // $toast.success("Toast adicionado com sucesso!");
 })
 
 const { adicionarFavorito } = useVideoStore();
+const videos = ref<Video[]>([]);
 
-const videos: Video[] = [
-    {
-        id: 1,
-        descricao: "01 - Introdução e Instalação",
-        url: "https://www.youtube.com/embed/WahQ5AoXpuU?si=F2FrXqWjB1dtJvGw",
-        data_postagem: "2023-10-15"
-    },
-    {
-        id: 2,
-        descricao: "02 - Configuração",
-        url: "https://www.youtube.com/embed/JbbB84bnPog?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=3",
-        data_postagem: "2023-10-20"
-    },
-    {
-        id: 3,
-        descricao: "03 - Pages",
-        url: "https://www.youtube.com/embed/S99sVicr8NI?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=4",
-        data_postagem: "2023-10-25"
-    },
-    {
-        id: 4,
-        descricao: "04 - Components",
-        url: "https://www.youtube.com/embed/cCHWanw49l8?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=5",
-        data_postagem: "2023-10-25"
-    }
-];
+// const videos: Video[] = [
+//     {
+//         id: 1,
+//         descricao: "01 - Introdução e Instalação",
+//         url: "https://www.youtube.com/embed/WahQ5AoXpuU?si=F2FrXqWjB1dtJvGw",
+//         data_postagem: "2023-10-15"
+//     },
+//     {
+//         id: 2,
+//         descricao: "02 - Configuração",
+//         url: "https://www.youtube.com/embed/JbbB84bnPog?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=3",
+//         data_postagem: "2023-10-20"
+//     },
+//     {
+//         id: 3,
+//         descricao: "03 - Pages",
+//         url: "https://www.youtube.com/embed/S99sVicr8NI?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=4",
+//         data_postagem: "2023-10-25"
+//     },
+//     {
+//         id: 4,
+//         descricao: "04 - Components",
+//         url: "https://www.youtube.com/embed/cCHWanw49l8?si=PLxd1RHU8YgYmTKohDs2lTqGvy0eaZJFfK&index=5",
+//         data_postagem: "2023-10-25"
+//     }
+// ];
 
 const converteDataBrasil = (dataAtual: string) => {
     return new Date(dataAtual).toLocaleString("pt-BR");
