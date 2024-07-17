@@ -7,6 +7,8 @@
                     <h2>{{ video.descricao }}</h2>
                 </template>
 
+                {{ formataData(video.data_postagem) }}
+
                 <iframe class="h-48 w-full" :src="video.url" title="Youtube video player" frameborder="0" />
 
                 <template #footer>

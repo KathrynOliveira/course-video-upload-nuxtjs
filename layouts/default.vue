@@ -5,18 +5,10 @@
                 <NuxtLink to="/">
                     <span class="font-semibold text-xl tracking-tight">Kathryn Oliveira</span>
                 </NuxtLink>
-                <NuxtLink to="/">
-                    <span class="mx-4 text-small tracking-tight">Home</span>
+                <NuxtLink v-for="rota in rotasSistemas()" :key="rota.nome" :to="rota.path">
+                    <span class="mx-4 text-small tracking-tight">{{rota.nome}}</span>
                 </NuxtLink>
-                <NuxtLink to="/videos">
-                    <span class="mr-4 text-small tracking-tight">Vídeos</span>
-                </NuxtLink>
-                <NuxtLink to="/videos/adicionar">
-                    <span class="mr-4 text-small tracking-tight">Adicionar Videos</span>
-                </NuxtLink>
-                <NuxtLink to="/videos/favoritos">
-                    <span class="text-small tracking-tight">Favoritos</span>
-                </NuxtLink>
+                
             </div>
             <div class="block lg:hidden">
                 <button
