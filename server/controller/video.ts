@@ -3,6 +3,12 @@ import { sql } from "./../utils";
 import { H3Event, readBody, createError } from 'h3';
 
 export const buscaVideos = async (): Promise<Video[]> => {
+
+  throw createError({
+      statusCode: 500,
+      name: 'Erro ao acessar o banco de dados',
+  })
+  
   const resultado = await sql({ query: 'SELECT * FROM videos ORDER BY descricao ASC'})
     return resultado as Video[];
 };

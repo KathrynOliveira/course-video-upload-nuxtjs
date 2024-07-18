@@ -5,24 +5,24 @@
         <UButton icon="i-heroicons-pencil-square" size="sm" color="primary" variant="solid" label="Editar"
             :trailing="false" @click="abrirModal" />
 
-           
-            <UModal v-model="isOpen" :overlay="false">
-                <div class="p-4">
-                    <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
-                        <UFormGroup label="Descrição" name="descricao">
-                            <UInput v-model="state.descricao" />
-                        </UFormGroup>
 
-                        <UFormGroup label="Url" name="url">
-                            <UInput v-model="state.url" type="url" />
-                        </UFormGroup>
+        <UModal v-model="isOpen" :overlay="false">
+            <div class="p-4">
+                <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+                    <UFormGroup label="Descrição" name="descricao">
+                        <UInput v-model="state.descricao" />
+                    </UFormGroup>
 
-                        <UButton type="submit">
-                            Enviar
-                        </UButton>
-                    </UForm>
-                </div>
-            </UModal>
+                    <UFormGroup label="Url" name="url">
+                        <UInput v-model="state.url" type="url" />
+                    </UFormGroup>
+
+                    <UButton type="submit">
+                        Enviar
+                    </UButton>
+                </UForm>
+            </div>
+        </UModal>
 
         <UCard class="w-[800px] justify-center">
             <template #header>
@@ -41,11 +41,16 @@
 import type { Video } from '~/interfaces/video';
 const isOpen = ref(false);
 const route = useRoute();
-const video = ref<Video>({} as Video);
+const id = route.params;
 
-onMounted(async () => {
-    video.value = await $fetch(`/api/v1/videos/${route.params.id}`);
-})
+const { data: video } = await useFetch(`/api/v1/videos/${id}`);
+
+if (!video.value) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Vídeo não encontrado'
+    })
+}
 
 const router = useRouter();
 const { $toast } = useNuxtApp();
@@ -71,7 +76,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
         });
         router.push("/videos");
         $toast.success("Vídeo atualizado com sucesso!");
-        isOpen.value =  false;
+        isOpen.value = false;
 
     } catch (error) {
         $toast.error("Erro ao atualizar o vídeo.")
@@ -93,7 +98,7 @@ const deletarVideo = async () => {
         });
         router.push("/videos");
         $toast.success("Vídeo deletado com sucesso!");
-        isOpen.value =  false;
+        isOpen.value = false;
 
     } catch (error) {
         $toast.error("Erro ao deletar o vídeo.")

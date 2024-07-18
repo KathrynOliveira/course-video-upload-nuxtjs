@@ -36,13 +36,16 @@ import type { Video } from '@/interfaces/video';
 
 const { $toast } = useNuxtApp();
 
-onMounted(async () => {
-    videos.value = await $fetch('/api/v1/videos')
+const { data: videos, error } = await useFetch('/api/v1/videos');
+
+onMounted(() => {
+    if (error.value) {
+        $toast.error(error.value.statusMessage || "");
+    }
     // $toast.success("Toast adicionado com sucesso!");
 })
 
 const { adicionarFavorito } = useVideoStore();
-const videos = ref<Video[]>([]);
 
 // const videos: Video[] = [
 //     {
