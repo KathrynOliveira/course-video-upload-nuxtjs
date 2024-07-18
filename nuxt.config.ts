@@ -8,7 +8,12 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
-    layoutTransition: { name: "layout", mode: "out-in"},
+    layoutTransition: { name: "layout", mode: "out-in" },
+    head: {
+      charset: "UTF-8",
+      viewport: "width=device-width, initial-scale=1",
+      // title: "Meu Site", title no navegador
+    }
     // baseURL: process.env.BASE_URL || "http://localhost:3000/"
   },
   css: ["@/assets/css/main.css"],

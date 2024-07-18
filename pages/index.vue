@@ -4,6 +4,15 @@
     </div>
 </template>
 
-<script setup>
+<script lang="ts">
+useHead({
+    title: 'Kathryn Oliveira - Tutoriais',
+    meta: [
+        {
+            name: 'description',
+            content: 'Site de tutorias de VueJs/Nuxt'
+        }
+    ]
+})
 
 </script>

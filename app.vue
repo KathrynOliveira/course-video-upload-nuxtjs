@@ -6,6 +6,7 @@
     </NuxtLayout>
   </div>
 </template>
+
 <style>
 .page-enter-active,
 .page-leave-active {

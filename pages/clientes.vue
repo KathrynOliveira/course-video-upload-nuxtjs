@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Clientes</Title>
+            <Meta name="description" content="Teste"/>
+            <Style type="text/css" children="body {background-color:green;}"></Style>
+        </Head>
         <h1 class="text-5xl text-center my-4">Clientes</h1>
         <button @click="refresh" class="px-4 py-2 bg-green-400 shadow-md rounded-md">Recarregar</button>
         <div v-if="pending">Carregando...</div>
