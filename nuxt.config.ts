@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     utils: '/<rootDir>/server/utils'
   },
   app: {
+    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "layout", mode: "out-in"},
     // baseURL: process.env.BASE_URL || "http://localhost:3000/"
   },
   css: ["@/assets/css/main.css"],

@@ -38,6 +38,10 @@
 const videoStore = useVideoStore();
 const { favoritos } = storeToRefs(videoStore)
 
+definePageMeta({
+    layout: 'exibicao'
+})
+
 </script>
 
 <style lang="scss" scoped></style>

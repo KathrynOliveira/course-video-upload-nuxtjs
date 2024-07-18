@@ -20,6 +20,12 @@
 
 const pagina = ref(1);
 
+definePageMeta({
+    pageTransition: {
+        name: "slide",
+    },
+})
+
 const { data: clientes, pending, error, refresh, execute } = await useFetch('https://reqres.in/api/users?delay=3', {
     //lazy: true
     // pick: ["page", "data"] só traz as propriedade que você precisar

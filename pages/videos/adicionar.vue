@@ -32,17 +32,19 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 </script>
 
 <template>
-    <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
-        <UFormGroup label="Descrição" name="descricao">
-            <UInput v-model="state.descricao" />
-        </UFormGroup>
-
-        <UFormGroup label="Url" name="url">
-            <UInput v-model="state.url" type="url" />
-        </UFormGroup>
-
-        <UButton type="submit">
-            Enviar
-        </UButton>
-    </UForm>
+    <div>
+        <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+            <UFormGroup label="Descrição" name="descricao">
+                <UInput v-model="state.descricao" />
+            </UFormGroup>
+    
+            <UFormGroup label="Url" name="url">
+                <UInput v-model="state.url" type="url" />
+            </UFormGroup>
+    
+            <UButton type="submit">
+                Enviar
+            </UButton>
+        </UForm>
+    </div>
 </template>
