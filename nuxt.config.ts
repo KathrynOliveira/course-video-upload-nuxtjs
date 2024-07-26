@@ -1,7 +1,9 @@
+import { client } from "process";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  components: [{ path: "~/shared/icons", prefix: "Icon"}, "~/components"],
+  components: [{ path: "~/shared/icons", prefix: "Icon" }, "~/components"],
   alias: {
     css: '/<rootDir>/assets/css',
     utils: '/<rootDir>/server/utils'
@@ -23,8 +25,19 @@ export default defineNuxtConfig({
     {
       vueI18n: "./i18n"
     }
-  ], "@nuxt/ui"],
+  ], "@nuxt/ui", "nuxt-auth-utils"],
   pinia: {
     storesDirs: ['./stores/**']
-  }
-})
+  },
+  // routeRules: {
+  //   '/auth/**': { ssr: false }, // Example for disabling SSR on auth routes
+  // },
+  runtimeConfig: {
+    oauth: {
+      Google: {
+        clientId: process.env.NUXT_OAUTH_GOOGLE_CLIENT_ID,
+        clientSecret: process.env.NUXT_OAUTH_GOOGLE_CLIENT_SECRET,
+      },
+    },
+  },
+});

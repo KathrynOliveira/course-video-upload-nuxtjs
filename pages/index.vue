@@ -1,10 +1,13 @@
 <template>
     <div>
         <h1 class="text-5xl text-center">Página Inicial</h1>
+
+        {{ user }}
     </div>
 </template>
 
-<script lang="ts">
+<script setup>
+const { user } = useUserSession();
 useHead({
     title: 'Kathryn Oliveira - Tutoriais',
     meta: [

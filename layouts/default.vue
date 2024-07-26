@@ -6,9 +6,9 @@
                     <span class="font-semibold text-xl tracking-tight">Kathryn Oliveira</span>
                 </NuxtLink>
                 <NuxtLink v-for="rota in rotasSistemas()" :key="rota.nome" :to="rota.path">
-                    <span class="mx-4 text-small tracking-tight">{{rota.nome}}</span>
+                    <span class="mx-4 text-small tracking-tight">{{ rota.nome }}</span>
                 </NuxtLink>
-                
+
             </div>
             <div class="block lg:hidden">
                 <button
@@ -71,6 +71,7 @@
 const { locale } = useI18n();
 const isOpen = ref(false);
 const colorMode = useColorMode()
+const { user, clear, loggedIn} = useUserSession()
 
 const toggleMenu = () => {
     isOpen.value = !isOpen.value;

@@ -33,19 +33,30 @@
 <script setup lang="ts">
 
 import type { Video } from '@/interfaces/video';
+import formataData from "~/utils/formataData";
+
+definePageMeta({
+    middleware: ["auth"],
+});
 
 const { $toast } = useNuxtApp();
+const { adicionarFavorito } = useVideoStore();
 
 const { data: videos, error } = await useFetch('/api/v1/videos');
 
-onMounted(() => {
-    if (error.value) {
-        $toast.error(error.value.statusMessage || "");
-    }
-    // $toast.success("Toast adicionado com sucesso!");
-})
+const favoritar = (video: Video) => {
+    adicionarFavorito(video);
+    $toast.success("Adicionado aos favoritos!")
+}
 
-const { adicionarFavorito } = useVideoStore();
+// onMounted(() => {
+//     if (error.value) {
+//         $toast.error(error.value.statusMessage || "");
+//     }
+//     // $toast.success("Toast adicionado com sucesso!");
+// })
+
+
 
 // const videos: Video[] = [
 //     {
@@ -78,10 +89,7 @@ const converteDataBrasil = (dataAtual: string) => {
     return new Date(dataAtual).toLocaleString("pt-BR");
 };
 
-const favoritar = (video: Video) => {
-    adicionarFavorito(video);
-    $toast.success("Adicionado aos favoritos!")
-}
+
 
 </script>
 
