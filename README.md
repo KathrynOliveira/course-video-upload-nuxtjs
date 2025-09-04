@@ -1,75 +1,62 @@
-# Nuxt 3 Minimal Starter
+# 🚀 Sistema de Upload de Vídeos
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Aplicação web desenvolvida para realizar upload e gerenciamento de vídeos de forma simples e intuitiva.
 
-## Setup
+## 📋 Tabela de Conteúdos
 
-Make sure to install the dependencies:
+- [📖 Visão Geral](#-visão-geral)
+- [💻 Tecnologias](#-tecnologias)
+- [🚀 Instalação](#-instalação)
+- [📝 Como Usar](#-como-usar)
+- [✨ Funcionalidades](#-funcionalidades)
+- [👨‍💻 Autor](#-autor)
+
+## 📖 Visão Geral
+
+Este repositório contém o código-fonte do projeto **web-video-upload-nuxtjs**, uma aplicação web para envio e gerenciamento de vídeos diretamente no navegador.  
+
+
+## 💻 Tecnologias
+
+- **Vue**
+- **NuxtJs**
+- **TypeScript**
+- **Pinia**
+- **CSS**
+
+## 🚀 Instalação
 
 ```bash
-# npm
+# Clone o repositório
+git clone https://github.com/KathrynOliveira/web-video-upload-nuxtjs.git
+
+# Entre no diretório do repositório
+cd web-video-upload-nuxtjs
+
+# Instale as dependências
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
+# ou
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 📝 Como Usar
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# Execute a aplicação em modo de desenvolvimento
+npm start
+# ou
+yarn start
 ```
 
-## Production
+## ✨ Funcionalidades
 
-Build the application for production:
+- ✅ Upload de vídeos
+- ✅ Listagem dos vídeos enviados
+- ✅ Pré-visualização dos vídeos
+- ✅ Interface responsiva e amigável
+- ✅ Autenticação com a Google
 
-```bash
-# npm
-npm run build
 
-# pnpm
-pnpm run build
+## 👨‍💻 Autor
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [KathrynOliveira](https://github.com/KathrynOliveira)
