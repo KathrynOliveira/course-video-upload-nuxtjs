@@ -28,10 +28,10 @@ Este repositório contém o código-fonte do projeto **web-video-upload-nuxtjs**
 
 ```bash
 # Clone o repositório
-git clone https://github.com/KathrynOliveira/web-video-upload-nuxtjs.git
+git clone https://github.com/KathrynOliveira/course-video-upload-nuxtjs.git
 
 # Entre no diretório do repositório
-cd web-video-upload-nuxtjs
+cd course-video-upload-nuxtjs
 
 # Instale as dependências
 npm install
